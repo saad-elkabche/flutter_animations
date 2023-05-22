@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_animation/secreens/Animations.dart';
-import 'package:flutter_animation/secreens/opacity.dart';
-
 import '../routes.dart';
 import 'secondPage.dart';
 
@@ -26,12 +24,17 @@ class _HomeState extends State<Home> {
           width: 200,
           child: Column(
             children: [
-              getButton(context, "Opacity",()=>_NavToOpacityAnim(Routes.opacity)),
+              getButton(context, "Opacity",()=>_NavToSecreen(Routes.opacity)),
               getButton(context, "Transition",_openWithTransition),
               getButton(context, "Scale",_openWithScale),
               getButton(context,"Rotation",_openWithRotation),
               getButton(context, "Rotation & Scale",_openWithRotationScale),
               getButton(context, "Rotation & Scale & Slide",_openWithRotationScaleTrasition),
+              getButton(context, "Size Animation",_openWithSizeTransition),
+              getButton(context, "Fade Animation",_openWithFadeTransition),
+              getButton(context, "Transform Container",()=>_NavToSecreen(Routes.containerAnim)),
+              getButton(context, "matrix 4",()=>_NavToSecreen(Routes.matrix4)),
+              getButton(context, "Animated Container",()=>_NavToSecreen(Routes.animatedContainer)),
             ],
           ),
         ),
@@ -39,7 +42,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  void _NavToOpacityAnim(String distination) {
+  void _NavToSecreen(String distination) {
     Navigator.of(context).pushNamed(distination);
   }
   void _openWithTransition() {
@@ -59,6 +62,15 @@ class _HomeState extends State<Home> {
         RotationScaleTransitionAnimation(page: const SecondPage())
     );
   }
+  void _openWithSizeTransition() {
+    Navigator.of(context).push(SizeAnimation(page: const SecondPage()));
+  }
+  void _openWithFadeTransition() {
+    Navigator.of(context).push(FadeAnimation(page:const SecondPage()));
+  }
+
+
+
 
 
   Widget getButton(BuildContext context,String text,VoidCallback onClick){
@@ -67,6 +79,10 @@ class _HomeState extends State<Home> {
         child: Text(text,textAlign:TextAlign.center),
     );
   }
+
+
+
+
 
 
 

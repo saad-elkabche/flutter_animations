@@ -120,3 +120,29 @@ class RotationScaleTransitionAnimation extends PageRouteBuilder{
   );
 
 }
+
+
+class SizeAnimation extends PageRouteBuilder{
+  Widget page;
+  SizeAnimation({required this.page}):super(
+    pageBuilder: (context,animation,secondaryAnimation)=>page,
+    transitionsBuilder: (context,animation,secondaryAnimation,child){
+      return Center(child: SizeTransition(sizeFactor: animation,axis: Axis.horizontal,child: child));
+    },
+    transitionDuration: const Duration(seconds: 2),
+    reverseTransitionDuration: const Duration(seconds: 2),
+  );
+}
+
+
+class FadeAnimation extends PageRouteBuilder{
+  Widget page;
+  FadeAnimation({required this.page}):super(
+    pageBuilder: (context,animation,secondaryAnimation)=>page,
+    transitionsBuilder: (context,animation,secondaryAnimation,child){
+      return FadeTransition(opacity: animation,child: child,);
+    },
+    transitionDuration: const Duration(seconds: 2),
+    reverseTransitionDuration: const Duration(seconds: 2),
+  );
+}
