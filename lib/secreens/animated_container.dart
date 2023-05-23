@@ -50,6 +50,7 @@ class _AnimatedContainerState extends State<AnimatedContainerSecreen> {
               constraints: const BoxConstraints(maxHeight: 50,maxWidth: 50),
               child: Container(width: 40,height: 40,color: Colors.amber,),
             ),
+            onEnd: _startAnimation
           ),
         )
     );
@@ -65,8 +66,8 @@ class _AnimatedContainerState extends State<AnimatedContainerSecreen> {
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                 _button("change size", _changeContainerSize),
-                 _button("change Alignment", _changeContainerAlign),
+                 _button("Start Animation", _startAnimation),
+
                 ],
               ),
             ),
@@ -94,4 +95,9 @@ Widget _button(String action,VoidCallback onPressed){
     });
   }
 
+
+  void _startAnimation() {
+    _changeContainerSize();
+    _changeContainerAlign();
+  }
 }

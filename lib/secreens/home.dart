@@ -18,10 +18,8 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title:const  Text("Animations"),
       ),
-      body: Align(
-        child: Container(
-          alignment: Alignment.center,
-          width: 200,
+      body: Center(
+        child: SingleChildScrollView(
           child: Column(
             children: [
               getButton(context, "Opacity",()=>_NavToSecreen(Routes.opacity)),
@@ -35,6 +33,9 @@ class _HomeState extends State<Home> {
               getButton(context, "Transform Container",()=>_NavToSecreen(Routes.containerAnim)),
               getButton(context, "matrix 4",()=>_NavToSecreen(Routes.matrix4)),
               getButton(context, "Animated Container",()=>_NavToSecreen(Routes.animatedContainer)),
+              getButton(context, "Cross FadeAnimation",()=>_NavToSecreen(Routes.crossFadeAnimation)),
+              getButton(context, "Text style Animation",()=>_NavToSecreen(Routes.textStyleAnimation)),
+              getButton(context, "Positioned Animation",()=>_NavToSecreen(Routes.positionedAnimation)),
             ],
           ),
         ),
@@ -75,7 +76,7 @@ class _HomeState extends State<Home> {
 
   Widget getButton(BuildContext context,String text,VoidCallback onClick){
     return ElevatedButton(onPressed: onClick,
-      style: ElevatedButton.styleFrom(fixedSize: Size(MediaQuery.of(context).size.width,25 )),
+      style: ElevatedButton.styleFrom(fixedSize:Size( 200,25 )),
         child: Text(text,textAlign:TextAlign.center),
     );
   }
